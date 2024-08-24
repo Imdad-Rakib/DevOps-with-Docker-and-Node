@@ -113,10 +113,10 @@ async function login(req, res, next) {
                     maxAge: process.env.JWT_EXPIRY,
                     httpOnly: true,
                     signed: true,
-                    domain: 'localhost',
+                    // domain: 'localhost',
                     path: '/',
                     sameSite: 'None',
-                    secure: true,
+                    secure: false,
                 })
                 res.status(200).json({
                     id: userObject.id

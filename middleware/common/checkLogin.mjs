@@ -26,4 +26,4 @@ const checkLogin = (req, res, next) => {
   }
 };
 
-export {checkLogin};``
+export {checkLogin};
