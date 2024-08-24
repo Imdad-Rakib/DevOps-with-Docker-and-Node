@@ -115,8 +115,8 @@ async function login(req, res, next) {
                     signed: true,
                     domain: 'localhost',
                     path: '/',
-                    sameSite: 'strict',
-                    secure: false,
+                    sameSite: 'None',
+                    secure: true,
                 })
                 res.status(200).json({
                     id: userObject.id
