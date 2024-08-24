@@ -71,7 +71,7 @@ async function sendVerificationMail(req, res, next) {
         const uriEncodedToken = encodeURIComponent(token);
         await connection.execute('DELETE FROM passResetToken WHERE email = ?', [req.body.email])
         await connection.execute(`INSERT INTO passResetToken (email, token) VALUES (?, ?)`, [req.body.email, token]);
-        let url = `http://localhost:3000/api/auth/tokenValidation/${uriEncodedToken}`;
+        let url = `http://107.178.98.186:3000/api/auth/tokenValidation/${uriEncodedToken}`;
         let isEmailSent = await sendEmail(process.env.EMAIL, process.env.KEY, req.body.email, url, 'Password Reset');
         if (isEmailSent) {
             res.status(200).json({
