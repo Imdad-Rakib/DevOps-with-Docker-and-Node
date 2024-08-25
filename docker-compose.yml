@@ -13,7 +13,7 @@ services:
   
   node-app:
     
-    build: .
+    image: imdadrakib/docker-node-api:1.0
     environment:
       PORT: ${PORT}
       COOKIE_SECRET: ${COOKIE_SECRET}
