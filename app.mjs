@@ -23,7 +23,7 @@ const app = express();
 const server = createServer(app);
 
 // database connection
-  let conn;
+let conn;
   const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER ,
@@ -42,7 +42,7 @@ const server = createServer(app);
 const maxRetries = 10;
 const delay = 3000; 
 async function getConnectionWithRetry(retries = maxRetries) {
-  let conn;
+let conn;
   try {
     conn = await pool.getConnection();
     console.log('Connected to MySQL successfully');
