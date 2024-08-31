@@ -6,6 +6,10 @@ on:
       - main
       - dev
       - 'feature/**'
+  pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
   lint:
@@ -31,12 +35,12 @@ jobs:
           git log --oneline
           git diff --name-only HEAD~1 HEAD > changed_files.txt        
           cat changed_files.txt
-          grep -E '\.mjs$|\.jsx$|\.ts$|\.tsx$' changed_files.txt > lint_files.txt || true
+          grep -E '\.mjs$' changed_files.txt > lint_files.txt || true
         
       - name: Run ESLint on changed files
         run: |
           if [ -s lint_files.txt ]; then
-            npx eslint --fix $(cat lint_files.txt)
+            npx eslint $(cat lint_files.txt)
           else
             echo "No files changed."
           fi

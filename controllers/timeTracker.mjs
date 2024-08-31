@@ -128,10 +128,10 @@ const getWeeklyReport= async (req, res, next) => {
   }catch(err){
     // console.log(err);
     res.status(500).json({
-      error: 'Internal server error. Please try again.'
+      error: 'Internal server error . Please try again.'
     });
   }finally{
     connection.release();
   }
 };
-export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry};
+  export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry};
