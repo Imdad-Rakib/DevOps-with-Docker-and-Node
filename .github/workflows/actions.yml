@@ -29,8 +29,9 @@ jobs:
         id: changed_files
         run: |
           git log --oneline
-          git diff --name-only HEAD^ HEAD > changed_files.txt        
-          grep -E '\.js$|\.jsx$|\.ts$|\.tsx$' changed_files.txt > lint_files.txt || true
+          git diff --name-only HEAD~1 HEAD > changed_files.txt        
+          cat changed_files.txt
+          grep -E '\.mjs$|\.jsx$|\.ts$|\.tsx$' changed_files.txt > lint_files.txt || true
         
       - name: Run ESLint on changed files
         run: |
