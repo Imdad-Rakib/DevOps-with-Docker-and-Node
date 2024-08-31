@@ -1,4 +1,4 @@
-import createHttpError from "http-errors";
+import createHttpError from 'http-errors';
 
 // 404 not found handler
 function notFoundHandler(req, res, next) {
@@ -12,7 +12,7 @@ function errorHandler(err, req, res, next) {
   console.log(err);
   res.status(404).json({
     error: err
-  })
+  });
 }
 
-export { notFoundHandler, errorHandler }
+export { notFoundHandler, errorHandler };

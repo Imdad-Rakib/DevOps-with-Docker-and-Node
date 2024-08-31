@@ -1,16 +1,16 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
 
 
 async function sendEmail(author, pass, receiver, url, subject) {
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: author,
-            pass
-        }
-    });
-    const resetPass = 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: author,
+      pass
+    }
+  });
+  const resetPass = 
                     `<html>
                     <body>
                     <p>Hi there!</p>
@@ -18,7 +18,7 @@ async function sendEmail(author, pass, receiver, url, subject) {
                     <p>Thanks!</p>
                     </body>
                     </html>`;
-    const verifyEmail = 
+  const verifyEmail = 
                     `<html>
                     <body>
                     <p>Hi there!</p>
@@ -26,22 +26,22 @@ async function sendEmail(author, pass, receiver, url, subject) {
                     <p>Click on the link below to proceed: <br> <a href = ${url}> ${url}</p>
                     <p>Thanks!</p>
                     </body>
-                    </html>`
-    try {
-        await transporter.sendMail({
+                    </html>`;
+  try {
+    await transporter.sendMail({
 
-            from: author,
-            to: receiver,
-            subject,
-            html: (subject === "Password Reset" ? resetPass: verifyEmail)
+      from: author,
+      to: receiver,
+      subject,
+      html: (subject === 'Password Reset' ? resetPass: verifyEmail)
 
-        });
-        console.log('Email Sent Successfully');
-        return true;
-    } catch (err) {
-        console.log('Error', err);
-        return false
-    }
+    });
+    console.log('Email Sent Successfully');
+    return true;
+  } catch (err) {
+    console.log('Error', err);
+    return false;
+  }
 }
 
 export {sendEmail};

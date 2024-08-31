@@ -4,11 +4,11 @@ const createTempTokenTable = async(connection) =>{
     name VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     token VARCHAR(255)
-  );`
+  );`;
   try {
     await connection.execute(sql);
   } catch (err) {
     console.log(err);
   }
-}
+};
 export default createTempTokenTable;

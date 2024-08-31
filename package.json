@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=development nodemon app.mjs",
     "prod": "NODE_ENV=production node app.mjs",
-    "test": "echo \"Error: no test specified\"; exit 1"
+    "test": "echo \"Error: no test specified\"; exit 1",
+    "lint": "eslint .",
+    "lint:file": "eslint ./app.mjs"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,9 @@
     "nodemailer": "^6.9.7"
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
     "nodemon": "^3.0.2"
   }
 }
