@@ -150,7 +150,7 @@ function logout(req, res) {
     });
   }catch(err){
     res.status(500).json({
-      error: 'Internal sever error. Please try again later.'
+      error: 'Internal sever error. Please try again.'
     });
   }
 }
