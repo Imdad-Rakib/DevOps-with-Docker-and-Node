@@ -134,4 +134,4 @@ const getWeeklyReport= async (req, res, next) => {
     connection.release();
   }
 };
-  export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry};
+export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry};
