@@ -125,7 +125,7 @@ const getWeeklyReport= async (req, res, next) => {
   }catch(err){
     console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
+      error: "Internal server error. Please try again later."
     })
   }finally{
     connection.release();
