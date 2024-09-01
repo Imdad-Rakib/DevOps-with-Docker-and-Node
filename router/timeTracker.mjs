@@ -1,10 +1,10 @@
 // external imports
-import express from "express";
+import express from 'express';
 
 // internal imports
-import { checkLogin } from "../middleware/common/checkLogin.mjs";
-import { createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry } from "../controllers/timeTracker.mjs";
-import createConnection from "../middleware/common/createConnection.mjs";
+import { checkLogin } from '../middleware/common/checkLogin.mjs';
+import { createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry } from '../controllers/timeTracker.mjs';
+import createConnection from '../middleware/common/createConnection.mjs';
 
 
 const timeTrackerRouter = express.Router();
