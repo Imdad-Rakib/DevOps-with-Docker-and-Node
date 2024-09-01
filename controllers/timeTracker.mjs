@@ -1,16 +1,17 @@
 //external imports
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
 
 
 const createNewEntry = async (req, res, next) =>{
   const connection = req.connection;
   try{
-    const [rows] = await connection.execute(`SELECT * FROM workSchedule WHERE date = ? AND user_id = ?`, [req.body.date, req.user.id]);
+    const [rows] = await connection.execute('SELECT * FROM workSchedule WHERE date = ? AND user_id = ?', 
+      [req.body.date, req.user.id]);
     if(rows.length){
       res.status(422).json({
-        error: "An entry for this date already exists."
-      })
+        error: 'An entry for this date already exists.'
+      });
     }
     else{
       const {date, start_time, end_time, notes} = req.body;
@@ -19,41 +20,43 @@ const createNewEntry = async (req, res, next) =>{
       month = parseInt(month, 10);
       day = parseInt(day, 10);
       const dayName = format(new Date(year, month - 1, day), 'EEE');
-      await connection.execute(`INSERT INTO workSchedule (user_id, date, day, start_time, end_time, notes) VALUES (?, ?, ?, ?, ?, ?)`, [req.user.id, date, dayName, start_time, end_time, notes]);
+      await connection.execute('INSERT INTO workSchedule (user_id, date, day, start_time, end_time, notes) VALUES (?, ?, ?, ?, ?, ?)', 
+        [req.user.id, date, dayName, start_time, end_time, notes]);
       res.status(200).json({
         success: true
       });
     }
   }catch(err){
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
-    })
+      error: 'Internal server error. Please try again.'
+    });
   }finally{
     connection.release();
   }
-}
+};
 const updateRequest = async (req, res, next) =>{
   const connection = req.connection;
   try{
-    let [rows] = await connection.execute(`SELECT DATE_FORMAT(date, '%Y-%m-%d') as date, start_time, end_time, notes FROM workSchedule WHERE user_id = ? AND date = ?`, [req.user.id, req.params.date]);
+    let [rows] = await connection.execute('SELECT DATE_FORMAT(date, \'%Y-%m-%d\') as date, start_time, end_time, notes FROM workSchedule WHERE user_id = ? AND date = ?', 
+      [req.user.id, req.params.date]);
     if (rows.length) {
       res.status(200).json(rows[0]);
     }
     else{
       res.status(404).json({
-        error: "No entry found for the date."
-      })
+        error: 'No entry found for the date.'
+      });
     } 
   }catch(err){
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
-    })
+      error: 'Internal server error. Please try again.'
+    });
   }finally{
     connection.release();
   }
-}
+};
 const updateEntry = async (req, res, next) =>{
   const connection = req.connection;
   try{
@@ -61,16 +64,16 @@ const updateEntry = async (req, res, next) =>{
     await connection.execute('UPDATE workSchedule SET start_time = ?, end_time = ?, notes = ? WHERE user_id = ? AND date = ?', [start_time, end_time, notes, req.user.id, date]);
     res.status(200).json({
       success: true
-    })
+    });
   }catch(err){
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
-    })
+      error: 'Internal server error. Please try again.'
+    });
   }finally{
     connection.release();
   }
-}
+};
 const deleteEntry = async (req, res, next) =>{
   const connection = req.connection;
   try{
@@ -79,22 +82,22 @@ const deleteEntry = async (req, res, next) =>{
       await connection.execute('DELETE FROM workSchedule WHERE user_id = ? AND date = ?', [req.user.id, req.params.date]);
       res.status(200).json({
         success: true
-      })
+      });
     }
     else{
       res.status(404).json({
         error: 'No entry found to delete for this date'
-      })
+      });
     }
   }catch(err){
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
-    })
+      error: 'Internal server error. Please try again.'
+    });
   }finally{
     connection.release();
   }
-}
+};
 const getWeeklyReport= async (req, res, next) => {
   const connection = req.connection;
   // console.log(req.user.id);
@@ -123,12 +126,12 @@ const getWeeklyReport= async (req, res, next) => {
       report
     });
   }catch(err){
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
-      error: "Internal server error. Please try again."
-    })
+      error: 'Internal server error . Please try again.'
+    });
   }finally{
     connection.release();
   }
-}
-export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry}
+};
+  export {createNewEntry, getWeeklyReport, updateEntry, updateRequest, deleteEntry};

@@ -1,4 +1,4 @@
-import pool from "../../app.mjs";
+import pool from '../../app.mjs';
 
 let createConnection = async (req, res, next) =>{
   try{
@@ -8,8 +8,8 @@ let createConnection = async (req, res, next) =>{
   }catch(err){
     res.status(500).json({
       error: 'Internal server side problem'
-    })
+    });
   }
-}
+};
 
-export default createConnection
+export default createConnection;

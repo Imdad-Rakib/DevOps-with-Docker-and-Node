@@ -1,9 +1,9 @@
 // external imports
-import express from "express";
+import express from 'express';
 
 // internal imports
-import { sendVerificationMail, addUser, checkEmail, validateToken } from "../controllers/signUp.mjs";
-import createConnection from "../middleware/common/createConnection.mjs";
+import { sendVerificationMail, addUser, checkEmail, validateToken } from '../controllers/signUp.mjs';
+import createConnection from '../middleware/common/createConnection.mjs';
 
 const signUpRouter = express.Router();
 

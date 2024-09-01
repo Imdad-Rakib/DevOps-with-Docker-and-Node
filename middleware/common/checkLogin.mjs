@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 const checkLogin = (req, res, next) => {
   let cookies =
     Object.keys(req.signedCookies).length > 0 ? req.signedCookies : null;
@@ -12,16 +12,16 @@ const checkLogin = (req, res, next) => {
     }catch (err) {
       console.log(err.name);
       let msg;
-      if(err.name === 'TokenExpiredError' ) msg = "Session Expired! Login again."
-      else  msg = "Authentication Failure!";
+      if(err.name === 'TokenExpiredError' ) msg = 'Session Expired! Login again.';
+      else  msg = 'Authentication Failure!';
       res.status(500).json({
         error: msg
       });
     }
   } else {
-      res.status(401).json({
-        error: "You must login first."
-      });
+    res.status(401).json({
+      error: 'You must login first.'
+    });
     
   }
 };
