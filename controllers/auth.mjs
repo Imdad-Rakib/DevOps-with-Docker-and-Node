@@ -134,7 +134,7 @@ async function login(req, res, next) {
   }catch (err) {
     // console.log(err);
     res.status(500).json({
-      error: 'Internal server error. Please try again.'
+      error: 'Internal server side error. Please try again.'
     });
   }finally{
     connection.release();
@@ -150,7 +150,7 @@ function logout(req, res) {
     });
   }catch(err){
     res.status(500).json({
-      error: 'Internal sever error. Please try again later.'
+      error: 'Internal sever side error. Please try again later.'
     });
   }
 }
