@@ -13,7 +13,9 @@ services:
   node-app:
     
     # image: imdadrakib/docker-node-api:1.0
-    build: .
+    build: 
+      context: .
+      target: development
     volumes:
       - ./:/app
       - /app/node_modules
@@ -32,7 +34,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_PORT: ${MYSQL_PORT} 
 
-    command: ["npm", "run", "start"]
+    command: ["npm", "run", "dev"]
     depends_on:
       - database
   
