@@ -1,15 +1,16 @@
 name: Lint Code
 
 on:
-  push:
-    branches:
-      - main
-      - dev
-      - 'feature/**'
+  # push:
+  #   branches:
+  #     - main
+  #     - dev
+  #     - 'feature/**'
   pull_request:
     branches:
       - main
       - dev
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -44,3 +45,4 @@ jobs:
           else
             echo "No files changed."
           fi
+      
