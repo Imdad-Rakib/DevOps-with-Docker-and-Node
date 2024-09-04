@@ -47,12 +47,12 @@ jobs:
         MYSQL_HOST: localhost
       run: docker-compose up -d database
 
-    # - name: Wait for the database to be ready
-    #   run: |
-    #     until docker-compose exec -T database mysqladmin ping --silent; do
-    #       echo "Waiting for the database connection..."
-    #       sleep 5
-    #     done
+    - name: Wait for the database to be ready
+      run: |
+        until docker-compose exec -T database mysqladmin ping --silent; do
+          echo "Waiting for the database connection..."
+          sleep 5
+        done
     
     - name: Run Unit Tests
       run: npm test
