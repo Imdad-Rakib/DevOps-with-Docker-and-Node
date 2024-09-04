@@ -13,6 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Install dependencies
+      run: npm install
+        
+
     - name: Set up Docker
       run: |
         curl -fsSL https://get.docker.com -o get-docker.sh
