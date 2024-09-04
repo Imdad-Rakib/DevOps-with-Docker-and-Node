@@ -90,6 +90,7 @@ async function sendVerificationMail(req, res, next) {
 }
 
 async function login(req, res, next) {
+  console.log('req received')
   const connection = req.connection;
   try {
     const [users]  = await connection.execute('SELECT * FROM users WHERE email = ?', [req.body.email]);
@@ -132,7 +133,7 @@ async function login(req, res, next) {
       });
     }
   }catch (err) {
-    // console.log(err);
+    console.log(err);
     res.status(500).json({
       error: 'Internal server error. Please try again'
     });
