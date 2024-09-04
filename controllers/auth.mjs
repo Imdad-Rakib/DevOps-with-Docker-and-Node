@@ -90,7 +90,6 @@ async function sendVerificationMail(req, res, next) {
 }
 
 async function login(req, res, next) {
-  // console.log('request received!!');
   const connection = req.connection;
   try {
     const [users]  = await connection.execute('SELECT * FROM users WHERE email = ?', [req.body.email]);
@@ -119,6 +118,7 @@ async function login(req, res, next) {
           secure: false,
         });
         res.status(200).json({
+          success: true,
           id: userObject.id
         });
       } else {
@@ -127,14 +127,14 @@ async function login(req, res, next) {
         });
       }
     } else {
-      res.json({
+      res.status(401).json({
         error: 'Invalid email or password'
       });
     }
   }catch (err) {
     // console.log(err);
     res.status(500).json({
-      error: 'Internal server error. Please try again.'
+      error: 'Internal server error. Please try again'
     });
   }finally{
     connection.release();

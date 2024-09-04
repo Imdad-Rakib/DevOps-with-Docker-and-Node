@@ -1,0 +1,44 @@
+name: Run Unit Tests
+
+on: 
+  pull_request:
+    branches: ['main', 'dev'] 
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Compose
+      run: docker-compose up -d database
+
+    # - name: Wait for the database to be ready
+    #   run: |
+    #     until docker-compose exec -T database mysqladmin ping --silent; do
+    #       echo "Waiting for the database connection..."
+    #       sleep 5
+    #     done
+
+    - name: Set environment variables
+      run: |
+        echo "COOKIE_SECRET=${{ secrets.APP_SECRET.COOKIE_SECRET }}" >> $GITHUB_ENV
+        echo "JWT_SECRET=${{ secrets.APP_SECRET.JWT_SECRET }}" >> $GITHUB_ENV
+        echo "JWT_EXPIRY=${{ secrets.APP_SECRET.JWT_EXPIRY }}" >> $GITHUB_ENV
+        echo "COOKIE_NAME=${{ secrets.APP_SECRET.COOKIE_NAME }}" >> $GITHUB_ENV
+        echo "PORT=${{ secrets.APP_SECRET.PORT }}" >> $GITHUB_ENV
+        echo "CLIENT_PORT=${{ secrets.APP_SECRET.CLIENT_PORT }}" >> $GITHUB_ENV
+        echo "EMAIL=${{ secrets.APP_SECRET.EMAIL }}" >> $GITHUB_ENV
+        echo "KEY=${{ secrets.APP_SECRET.KEY }}" >> $GITHUB_ENV
+        echo "MYSQL_ROOT_PASSWORD=${{ secrets.APP_SECRET.MYSQL_ROOT_PASSWORD }}" >> $GITHUB_ENV
+        echo "MYSQL_DATABASE=${{ secrets.APP_SECRET.MYSQL_DATABASE }}" >> $GITHUB_ENV
+        echo "MYSQL_USER=${{ secrets.APP_SECRET.MYSQL_USER }}" >> $GITHUB_ENV
+        echo "MYSQL_PASSWORD=${{ secrets.APP_SECRET.MYSQL_PASSWORD }}" >> $GITHUB_ENV
+        echo "MYSQL_PORT=${{ secrets.APP_SECRET.MYSQL_PORT }}" >> $GITHUB_ENV
+        echo "MYSQL_HOST=${{ secrets.APP_SECRET.MYSQL_HOST }}" >> $GITHUB_ENV
+
+    - name: Run Unit Tests
+      run: npm test

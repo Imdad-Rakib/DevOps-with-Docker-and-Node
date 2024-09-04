@@ -44,7 +44,6 @@ async function getConnectionWithRetry(retries = maxRetries) {
   let conn;
   try {
     conn = await pool.getConnection();
-    // console.log('Connected to MySQL successfully');
     createTables(conn); 
   } catch (err) {
     if (retries > 0) {
@@ -95,6 +94,6 @@ server.listen(process.env.PORT, () => {
   // console.log(`Server running at port ${process.env.PORT}...`)
 });
 
+export { server };
 export default pool;
-
 // dummy comment

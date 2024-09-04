@@ -9,7 +9,6 @@ async function checkEmail(req, res, next) {
   const connection = req.connection;
   try {
     const [user] = await connection.execute('SELECT * FROM users WHERE email = ?', [req.body.email]);
-
     if (user.length) {
       res.status(422).json({
         error: 'This email is already in use. Try different.'
