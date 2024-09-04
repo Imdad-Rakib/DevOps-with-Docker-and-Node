@@ -46,6 +46,12 @@ jobs:
         MYSQL_PORT: 3306
         MYSQL_HOST: localhost
       run: |
+        echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
+        echo "MYSQL_DATABASE: $MYSQL_DATABASE"
+        echo "MYSQL_USER: $MYSQL_USER"
+        echo "MYSQL_PASSWORD: $MYSQL_PASSWORD"
+        echo "MYSQL_PORT: $MYSQL_PORT"
+        echo "MYSQL_HOST: $MYSQL_HOST"
         docker-compose up -d database
         docker ps -a
     - name: Wait for the database to be ready
