@@ -39,23 +39,21 @@ jobs:
     #       echo "Waiting for the database connection..."
     #       sleep 5
     #     done
-
-    - name: Set environment variables
-      run: |
-        echo "COOKIE_SECRET=${{ secrets.APP_SECRET.COOKIE_SECRET }}" >> $GITHUB_ENV
-        echo "JWT_SECRET=${{ secrets.APP_SECRET.JWT_SECRET }}" >> $GITHUB_ENV
-        echo "JWT_EXPIRY=${{ secrets.APP_SECRET.JWT_EXPIRY }}" >> $GITHUB_ENV
-        echo "COOKIE_NAME=${{ secrets.APP_SECRET.COOKIE_NAME }}" >> $GITHUB_ENV
-        echo "PORT=${{ secrets.APP_SECRET.PORT }}" >> $GITHUB_ENV
-        echo "CLIENT_PORT=${{ secrets.APP_SECRET.CLIENT_PORT }}" >> $GITHUB_ENV
-        echo "EMAIL=${{ secrets.APP_SECRET.EMAIL }}" >> $GITHUB_ENV
-        echo "KEY=${{ secrets.APP_SECRET.KEY }}" >> $GITHUB_ENV
-        echo "MYSQL_ROOT_PASSWORD=${{ secrets.APP_SECRET.MYSQL_ROOT_PASSWORD }}" >> $GITHUB_ENV
-        echo "MYSQL_DATABASE=${{ secrets.APP_SECRET.MYSQL_DATABASE }}" >> $GITHUB_ENV
-        echo "MYSQL_USER=${{ secrets.APP_SECRET.MYSQL_USER }}" >> $GITHUB_ENV
-        echo "MYSQL_PASSWORD=${{ secrets.APP_SECRET.MYSQL_PASSWORD }}" >> $GITHUB_ENV
-        echo "MYSQL_PORT=${{ secrets.APP_SECRET.MYSQL_PORT }}" >> $GITHUB_ENV
-        echo "MYSQL_HOST=${{ secrets.APP_SECRET.MYSQL_HOST }}" >> $GITHUB_ENV
-
+    
     - name: Run Unit Tests
+      env:
+        COOKIE_SECRET: ${{ secrets.APP_SECRET.COOKIE_SECRET }}
+        JWT_SECRET: ${{ secrets.APP_SECRET.JWT_SECRET }}
+        JWT_EXPIRY: ${{ secrets.APP_SECRET.JWT_EXPIRY }}
+        COOKIE_NAME: ${{ secrets.APP_SECRET.COOKIE_NAME }}
+        PORT: ${{ secrets.APP_SECRET.PORT }}
+        CLIENT_PORT: ${{ secrets.APP_SECRET.CLIENT_PORT }}
+        EMAIL: ${{ secrets.APP_SECRET.EMAIL }}
+        KEY: ${{ secrets.APP_SECRET.KEY }}
+        MYSQL_ROOT_PASSWORD: ${{ secrets.APP_SECRET.MYSQL_ROOT_PASSWORD }}
+        MYSQL_DATABASE: ${{ secrets.APP_SECRET.MYSQL_DATABASE }}
+        MYSQL_USER: ${{ secrets.APP_SECRET.MYSQL_USER }}
+        MYSQL_PASSWORD: ${{ secrets.APP_SECRET.MYSQL_PASSWORD }}
+        MYSQL_PORT: ${{ secrets.APP_SECRET.MYSQL_PORT }}
+        MYSQL_HOST: ${{ secrets.APP_SECRET.MYSQL_HOST }}
       run: npm test
