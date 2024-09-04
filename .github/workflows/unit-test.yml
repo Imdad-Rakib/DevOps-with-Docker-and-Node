@@ -45,8 +45,9 @@ jobs:
         MYSQL_PASSWORD: 123456
         MYSQL_PORT: 3306
         MYSQL_HOST: localhost
-      run: docker-compose up -d database
-
+      run: |
+        docker-compose up -d database
+        docker ps -a
     - name: Wait for the database to be ready
       run: |
         until docker-compose exec -T database mysqladmin ping --silent; do
