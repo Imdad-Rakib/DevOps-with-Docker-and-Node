@@ -42,18 +42,18 @@ jobs:
     
     - name: Run Unit Tests
       env:
-        COOKIE_SECRET: ${{ secrets.APP_SECRET.COOKIE_SECRET }}
-        JWT_SECRET: ${{ secrets.APP_SECRET.JWT_SECRET }}
-        JWT_EXPIRY: ${{ secrets.APP_SECRET.JWT_EXPIRY }}
-        COOKIE_NAME: ${{ secrets.APP_SECRET.COOKIE_NAME }}
-        PORT: ${{ secrets.APP_SECRET.PORT }}
-        CLIENT_PORT: ${{ secrets.APP_SECRET.CLIENT_PORT }}
-        EMAIL: ${{ secrets.APP_SECRET.EMAIL }}
-        KEY: ${{ secrets.APP_SECRET.KEY }}
-        MYSQL_ROOT_PASSWORD: ${{ secrets.APP_SECRET.MYSQL_ROOT_PASSWORD }}
-        MYSQL_DATABASE: ${{ secrets.APP_SECRET.MYSQL_DATABASE }}
-        MYSQL_USER: ${{ secrets.APP_SECRET.MYSQL_USER }}
-        MYSQL_PASSWORD: ${{ secrets.APP_SECRET.MYSQL_PASSWORD }}
-        MYSQL_PORT: ${{ secrets.APP_SECRET.MYSQL_PORT }}
-        MYSQL_HOST: ${{ secrets.APP_SECRET.MYSQL_HOST }}
+        COOKIE_SECRET: 2114e2420e79aa59430810f3b01434784721859ce93b7629eb1cba4144045344
+        JWT_SECRET: 2114e2420e79aa59431810f3b01434784721859sd93b7629eb1dba4144045347
+        JWT_EXPIRY: 86400000
+        COOKIE_NAME: time-tracking-system
+        PORT: 8000
+        CLIENT_PORT: 9000
+        EMAIL: rakibattaridib@gmail.com
+        KEY: vkcobgfzfcdmjpqt
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: mydb
+        MYSQL_USER: ubuntu
+        MYSQL_PASSWORD: 123456
+        MYSQL_PORT: 3306
+        MYSQL_HOST: localhost
       run: npm test
