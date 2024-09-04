@@ -15,7 +15,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-        
 
     - name: Set up Docker
       run: |
@@ -31,16 +30,6 @@ jobs:
         sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
     - name: Set up Docker Compose
-      run: docker-compose up -d database
-
-    # - name: Wait for the database to be ready
-    #   run: |
-    #     until docker-compose exec -T database mysqladmin ping --silent; do
-    #       echo "Waiting for the database connection..."
-    #       sleep 5
-    #     done
-    
-    - name: Run Unit Tests
       env:
         COOKIE_SECRET: 2114e2420e79aa59430810f3b01434784721859ce93b7629eb1cba4144045344
         JWT_SECRET: 2114e2420e79aa59431810f3b01434784721859sd93b7629eb1dba4144045347
@@ -56,4 +45,14 @@ jobs:
         MYSQL_PASSWORD: 123456
         MYSQL_PORT: 3306
         MYSQL_HOST: localhost
+      run: docker-compose up -d database
+
+    # - name: Wait for the database to be ready
+    #   run: |
+    #     until docker-compose exec -T database mysqladmin ping --silent; do
+    #       echo "Waiting for the database connection..."
+    #       sleep 5
+    #     done
+    
+    - name: Run Unit Tests
       run: npm test
