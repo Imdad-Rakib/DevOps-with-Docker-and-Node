@@ -14,7 +14,7 @@ describe('POST /api/auth/login', () => {
   // });
 
   it('should return 401 for invalid credentials', async () => {
-    const response = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({ email: 'rakibattaridib@gmail.com', password: 'wrongpassword' });
     
