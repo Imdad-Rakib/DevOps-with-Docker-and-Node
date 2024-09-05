@@ -5,7 +5,7 @@ node_modules/
 
 Dockerfile
 .dockerignore
-docker-compose.yml
+docker-compose*
 
 .git
 .gitignore
@@ -22,3 +22,6 @@ dist
 .idea
 .env
 
+eslint.config.json
+README.md
+.github/

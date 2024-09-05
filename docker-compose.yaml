@@ -1,4 +1,3 @@
-# version: "3"
 services:
 
   nginx:
@@ -13,7 +12,13 @@ services:
   
   node-app:
     
-    image: imdadrakib/docker-node-api:1.0
+    # image: imdadrakib/docker-node-api:1.0
+    build: 
+      context: .
+      target: development
+    volumes:
+      - ./:/app
+      - /app/node_modules
     environment:
       PORT: ${PORT}
       COOKIE_SECRET: ${COOKIE_SECRET}
@@ -29,7 +34,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_PORT: ${MYSQL_PORT} 
 
-    command: ["npm", "run", "prod"]
+    command: ["npm", "run", "dev"]
     depends_on:
       - database
   
