@@ -47,7 +47,7 @@ jobs:
           
 
       - name: SSH into VM and deploy using Docker Compose
-        uses: appleboy/ssh-action@v0.1.3
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
@@ -56,5 +56,3 @@ jobs:
             cd /Node-App/
             docker-compose -f docker-compose.prod.yaml down
             docker-compose -f docker-compose.prod.yaml up -d
-          fingerprint: "rsa-sha2-256" 
-
