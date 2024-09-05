@@ -15,18 +15,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-          # path: "docker-compose.prod.yaml"
 
-      # Step 2: Log in to Docker Hub
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-      # Step 3: Build Docker image using the production stage
-      - name: Build Docker image (production stage)
+      - name: Build Docker image from production stage
         run: |
           docker build --target production -t ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }} .
 
-      # Step 4: Tag the Docker image
       - name: Tag Docker image
         run: |
           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:latest
