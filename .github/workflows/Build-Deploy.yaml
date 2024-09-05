@@ -1,4 +1,4 @@
-name: CI/CD Workflow
+name: Build and Deploy
 
 on:
   push:
@@ -56,3 +56,5 @@ jobs:
             cd /Node-App/
             docker-compose -f docker-compose.prod.yaml down
             docker-compose -f docker-compose.prod.yaml up -d
+          fingerprint: "rsa-sha2-256" 
+
