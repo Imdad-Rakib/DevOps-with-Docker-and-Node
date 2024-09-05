@@ -13,7 +13,7 @@ EXPOSE 8000
 CMD ["npm", "run", "dev"]
 
 
-# Stage 4: Production
+# Stage 3: Production
 FROM base AS production
 ENV NODE_ENV=production
 RUN npm install --only=production
