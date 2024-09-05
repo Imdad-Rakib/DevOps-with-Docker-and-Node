@@ -27,13 +27,14 @@ jobs:
           docker build --target production -t ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }} .
 
       # Step 4: Tag the Docker image
-      # - name: Tag Docker image
-      #   run: |
-      #     docker tag ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:latest
+      - name: Tag Docker image
+        run: |
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:latest
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }}
-          # docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:latest
+        run: | 
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node-api:latest
 
   
       - name: Copy docker-compose.prod.yaml and deploy
@@ -56,3 +57,4 @@ jobs:
             cd /Node-App/
             docker-compose -f docker-compose.prod.yaml down
             docker-compose -f docker-compose.prod.yaml up -d
+
