@@ -51,6 +51,6 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             cd /Node-App/
+            docker-compose -f docker-compose.prod.yaml down -v
             docker-compose -f docker-compose.prod.yaml down
-            docker-compose -f docker-compose.prod.yaml up -d
 
