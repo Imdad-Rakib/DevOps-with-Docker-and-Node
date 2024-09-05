@@ -57,3 +57,4 @@ jobs:
             docker-compose -f docker-compose.prod.yaml down
             docker-compose -f docker-compose.prod.yaml up -d
           fingerprint: "rsa-sha2-256" 
+
