@@ -57,5 +57,4 @@ jobs:
             cd /Node-App/
             docker-compose -f docker-compose.prod.yaml down
             docker-compose -f docker-compose.prod.yaml up -d
-          # use_insecure_cipher: true
-          # fingerprint: "rsa-sha2-256" 
+
