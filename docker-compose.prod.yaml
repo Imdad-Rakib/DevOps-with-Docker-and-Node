@@ -13,7 +13,7 @@ services:
   
   node-app:
     
-    image: imdadrakib/docker-node-api:latest
+    image: imdadrakib/docker-node-api:${{ github.sha }}
     pull_policy: always
     environment:
       PORT: ${PORT}
