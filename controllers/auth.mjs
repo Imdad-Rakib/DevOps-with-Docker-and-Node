@@ -123,12 +123,12 @@ async function login(req, res, next) {
         });
       } else {
         res.status(401).json({
-          error: 'Invalid email or password.'
+          error: 'Invalid Email or Password.'
         });
       }
     } else {
       res.json({
-        error: 'Invalid email or password.'
+        error: 'Invalid Email or Password.'
       });
     }
   }catch (err) {
