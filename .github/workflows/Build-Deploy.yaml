@@ -52,5 +52,6 @@ jobs:
           script: |
             cd /Node-App/
             docker-compose -f docker-compose.prod.yaml down -v
+            docker rmi imdadrakib/docker-node-api:latest
             docker-compose -f docker-compose.prod.yaml up --build -d
 
