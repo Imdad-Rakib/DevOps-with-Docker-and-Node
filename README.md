@@ -128,4 +128,4 @@ Feel free to open issues and submit pull requests! Contributions are always welc
 ---
 
 ## 📧 Contact
-Connect with me on [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/imdad-raqib-a213bb212/)) if you're interested in discussing Docker, CI/CD, or best practices in application development.
+Connect with me on [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/imdad-raqib-a213bb212/) if you're interested in discussing Docker, CI/CD, or best practices in application development.
