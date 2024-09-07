@@ -5,12 +5,12 @@
 This repository contains the source code for an **Express API** application, enhanced with various DevOps and CI/CD practices. The application has been fully Dockerized, tested, and equipped with code quality checks to ensure maintainability and scalability.
 
 ### Key Features:
-- **Dockerized Environment**: The entire application is containerized using Docker Compose for consistent development and production environments.
-- **Load Balancer**: Distributes incoming traffic across instances, improving performance and scalability.
-- **CI Pipeline**: Automated testing, linting, and code analysis with GitHub Actions.
-- **CD Pipeline**: Seamless deployments to a remote VM using Docker Hub and Docker Compose.
-- **Code Quality Checks**: Integrated with SonarQube and CodeQL for continuous code analysis.
-- **Unit Testing**: Ensures component reliability with automated unit tests.
+- [Dockerized Environment](#-dockerization-with-docker-compose): The entire application is containerized using Docker Compose for consistent development and production environments.
+- [Load Balancer](#-load-balancer-implementation): Distributes incoming traffic across instances, improving performance and scalability.
+- [CI Pipeline](#-linter-ci-check): Automated testing, linting, and code analysis with GitHub Actions.
+- [CD Pipeline](#-continuous-deployment-cd-pipeline): Seamless deployments to a remote VM using Docker Hub and Docker Compose.
+- [Code Quality Checks](#-code-quality-with-sonarqube): Integrated with SonarQube and CodeQL for continuous code analysis.
+- [Unit Testing](#-unit-testing): Ensures component reliability with automated unit tests.
 
 ---
 
