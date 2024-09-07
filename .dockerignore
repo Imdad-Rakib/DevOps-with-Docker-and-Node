@@ -22,6 +22,6 @@ dist
 .idea
 .env
 
-eslint.config.json
+eslint.config.mjs
 README.md
 .github/
