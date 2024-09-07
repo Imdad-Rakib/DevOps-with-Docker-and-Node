@@ -9,7 +9,7 @@ This repository contains the source code for an **Express API** application, enh
 - [Load Balancer](#-load-balancer-implementation): Distributes incoming traffic across instances, improving performance and scalability.
 - [CI Pipeline](#-linter-ci-check): Automated testing, linting, and code analysis with GitHub Actions.
 - [CD Pipeline](#-continuous-deployment-cd-pipeline): Seamless deployments to a remote VM using Docker Hub and Docker Compose.
-- [Code Quality Checks](#-code-quality-with-sonarqube): Integrated with SonarQube and CodeQL for continuous code analysis.
+- [Code Quality Checks](#-code-quality-with-sonarcloud): Integrated with SonarCloud and CodeQL for continuous code analysis.
 - [Unit Testing](#-unit-testing): Ensures component reliability with automated unit tests.
 
 ---
@@ -44,8 +44,8 @@ npm run lint
 
 ---
 
-## 📊 Code Quality with SonarQube
-SonarQube is used for continuous code quality checks, identifying bugs, code smells, and security vulnerabilities. All commits are automatically analyzed via the CI pipeline, providing valuable insights to maintain a clean and secure codebase.
+## 📊 Code Quality with SonarCloud
+SonarCloud is used for continuous code quality checks, identifying bugs, code smells, and security vulnerabilities. All commits are automatically analyzed via the CI pipeline, providing valuable insights to maintain a clean and secure codebase.
 
 ---
 
@@ -67,7 +67,7 @@ Advanced code analysis is performed using **CodeQL**, which is integrated into t
 The project leverages **GitHub Actions** to automate the CI pipeline. This workflow includes:
 - Linting
 - Unit testing
-- SonarQube analysis
+- SonarCloud analysis
 - CodeQL analysis
 
 The workflow runs on every pull request and ensures that only high-quality code is merged into the main branch.
@@ -100,7 +100,7 @@ The next step is to further refine the CD pipeline and adopt more standard pract
 ### Prerequisites:
 - Docker
 - Node.js
-- SonarQube (for local code analysis)
+- SonarCloud
 
 ### Installation:
 1. Clone the repository:
@@ -128,4 +128,4 @@ Feel free to open issues and submit pull requests! Contributions are always welc
 ---
 
 ## 📧 Contact
-Connect with me on [LinkedIn](https://linkedin.com/in/yourprofile) if you're interested in discussing Docker, CI/CD, or best practices in application development.
+Connect with me on [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/imdad-raqib-a213bb212/)) if you're interested in discussing Docker, CI/CD, or best practices in application development.
