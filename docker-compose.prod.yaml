@@ -15,6 +15,8 @@ services:
     
     image: imdadrakib/docker-node-api:latest
     pull_policy: always
+    deploy:
+      replicas: 2
     environment:
       PORT: ${PORT}
       COOKIE_SECRET: ${COOKIE_SECRET}
